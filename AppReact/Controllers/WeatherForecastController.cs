@@ -8,10 +8,7 @@ namespace AppReact.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -21,16 +18,15 @@ namespace AppReact.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<ServerStatsModel> Get()
         {
             ServerStats serverStats = new ServerStats();
 
-            return Enumerable.Range(1, 1).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 1).Select(index => new ServerStatsModel
             {
-                Date = serverStats.GetDiskUsage(),
-                TemperatureC = serverStats.GetCpuUsageForProcess(),
-                TemperatureF = serverStats.GetMemoryUsage(),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                DiskUsage = serverStats.GetDiskUsage(),
+                CpuUsage = serverStats.GetCpuUsageForProcess(),
+                MemoryUsage = serverStats.GetMemoryUsage(),
             })
             .ToArray();
         }

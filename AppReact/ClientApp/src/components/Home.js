@@ -18,19 +18,17 @@ export class Home extends Component {
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
+            <th>Disk usage in %</th>
+            <th>CPU usage in %</th>
+            <th>Memory usage in MB</th>
           </tr>
         </thead>
         <tbody>
           {forecasts.map(forecast =>
-            <tr key={forecast.date}>
-              <td>{forecast.date}</td>
-              <td>{forecast.temperatureC}</td>
-              <td>{forecast.temperatureF}</td>
-              <td>{forecast.summary}</td>
+            <tr key={forecast.diskUsage}>
+              <td>{forecast.diskUsage}</td>
+              <td>{forecast.cpuUsage}</td>
+              <td>{forecast.memoryUsage}</td>
             </tr>
           )}
         </tbody>
@@ -45,7 +43,7 @@ export class Home extends Component {
 
     return (
       <div>
-        <h1 id="tabelLabel" >Weather forecast</h1>
+        <h1 id="tabelLabel" >Server statistics</h1>
         <p>This component demonstrates fetching data from the server.</p>
         {contents}
       </div>
