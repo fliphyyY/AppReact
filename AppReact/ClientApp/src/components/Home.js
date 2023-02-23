@@ -15,27 +15,37 @@ export class Home extends Component {
 
   static renderForecastsTable(forecasts) {
     return (
+      <React.Fragment>
+
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>Disk usage in %</th>
-            <th>CPU usage in %</th>
-            <th>Memory usage in MB</th>
+            <th>Disk usage</th>
+            <th>CPU usage</th>
+            <th>Memory usage</th>
           </tr>
         </thead>
         <tbody>
           {forecasts.map(forecast =>
             <tr key={forecast.diskUsage}>
-              <td>{forecast.diskUsage}</td>
-              <td>{forecast.cpuUsage}</td>
-              <td>{forecast.memoryUsage}</td>
+              <td>{forecast.diskUsage}%</td>
+              <td>{forecast.cpuUsage}%</td>
+              <td>{forecast.memoryUsage}MB</td>
             </tr>
           )}
         </tbody>
       </table>
+   <div>
+
+
+
+   <button className="btn btn-primary" onClick={async() => await populateWeatherData()}>Fetch data</button> 
+ </div>
+ </React.Fragment>
+
     );
   }
-
+//button does not work
   render() {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
@@ -44,13 +54,14 @@ export class Home extends Component {
     return (
       <div>
         <h1 id="tabelLabel" >Server statistics</h1>
-        <p>This component demonstrates fetching data from the server.</p>
+        <p>Demonstration fetching data from the server.</p>
         {contents}
       </div>
     );
   }
 
   async populateWeatherData() {
+    console.log("ZZZZZ")
     const response = await fetch('weatherforecast');
     const data = await response.json();
     this.setState({ forecasts: data, loading: false });
