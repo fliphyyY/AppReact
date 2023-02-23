@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace AppReact.Controllers
 {
@@ -21,13 +23,18 @@ namespace AppReact.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            ServerStats serverStats = new ServerStats();
+
+            return Enumerable.Range(1, 1).Select(index => new WeatherForecast
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                Date = serverStats.GetDiskUsage(),
+                TemperatureC = serverStats.GetCpuUsageForProcess(),
+                TemperatureF = serverStats.GetMemoryUsage(),
+            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
         }
+
+    
     }
 }
