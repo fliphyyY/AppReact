@@ -1,0 +1,101 @@
+[
+  
+  {
+    "type": "node",
+    "id": 928492727,
+    "lat": 49.1946050,
+    "lon": 16.6057690,
+    "tags": {
+      "information": "office",
+      "internet_access": "wlan",
+      "name": "TIC Brno",
+      "opening_hours": "Mo-Fr 08:00-18:00; Apr-Sep: Sa,Su 09:00-18:00; Oct-Mar: Sa 09:00-17:00; Oct-Mar: Su 09:00-15:00",
+      "source": "survey",
+      "tourism": "information",
+      "website": "https://www.ticbrno.cz/informacni-centra"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1239124295,
+    "lat": 49.1910674,
+    "lon": 16.6124750,
+    "tags": {
+      "information": "office",
+      "level": "0",
+      "name": "TIC Brno",
+      "opening_hours": "Mo-Su 09:00-17:00",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1676764368,
+    "lat": 49.1934649,
+    "lon": 16.6084592,
+    "tags": {
+      "information": "office",
+      "name": "TIC Jižní morava",
+      "source": "survey",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3152753580,
+    "lat": 49.1941392,
+    "lon": 16.6003453,
+    "tags": {
+      "fixme": "overit",
+      "information": "office",
+      "name": "Tourist information",
+      "tourism": "information",
+      "website": "http://www.spilberk.cz"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3390818923,
+    "lat": 49.1930963,
+    "lon": 16.6086020,
+    "tags": {
+      "information": "office",
+      "name": "TIC",
+      "opening_hours": "PH,Mo-Su 09:00-18:00",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3390998177,
+    "lat": 49.1914066,
+    "lon": 16.6074835,
+    "tags": {
+      "information": "office",
+      "name": "Informační centrum Petrov",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3525314470,
+    "lat": 49.1913645,
+    "lon": 16.6135370,
+    "tags": {
+      "information": "office",
+      "name": "ČD centrum",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 9924986432,
+    "lat": 49.1862274,
+    "lon": 16.6163494,
+    "tags": {
+      "information": "office",
+      "tourism": "information"
+    }
+  }
+  
+    ]

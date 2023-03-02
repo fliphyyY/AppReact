@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import JsonData from './data.json'
 
 export class Home extends Component {
   static displayName = Home.name;
@@ -6,40 +7,49 @@ export class Home extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { forecasts: [], loading: true };
   }
 
+
+
   componentDidMount() {
-    this.populateWeatherData();
+    this.render()
   }
 
   static renderForecastsTable(forecasts) {
+   console.log(forecasts[0].tags.information);
     return (
       <React.Fragment>
 
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>Disk usage</th>
-            <th>CPU usage</th>
-            <th>Memory usage</th>
+            <th>Information</th>
+            <th>Internet access</th>
+            <th>FixMe</th>
+            <th>Name</th>
+            <th>Opening hours</th>
+            <th>Source</th>
+            <th>Tourism</th>
+            <th>Website</th>
           </tr>
         </thead>
         <tbody>
-          {forecasts.map(forecast =>
-            <tr key={forecast.diskUsage}>
-              <td>{forecast.diskUsage}%</td>
-              <td>{forecast.cpuUsage}%</td>
-              <td>{forecast.memoryUsage}MB</td>
+          {forecasts?.tags.map(forecast =>
+            <tr>
+              <td>{forecast?.information}</td>
+              <td>{forecast?.internet_access}</td>
+              <td>{forecast?.fixme}</td>
+              <td>{forecast?.name}</td>
+              <td>{forecast?.opening_hours}</td>
+              <td>{forecast?.source}</td>
+              <td>{forecast?.tourism}</td>
+              <td>{forecast?.website}</td>
             </tr>
           )}
         </tbody>
       </table>
    <div>
 
-
-
-   <button className="btn btn-primary" onClick={async() => await populateWeatherData()}>Fetch data</button> 
  </div>
  </React.Fragment>
 
@@ -47,23 +57,13 @@ export class Home extends Component {
   }
 //button does not work
   render() {
-    let contents = this.state.loading
-      ? <p><em>Loading...</em></p>
-      : Home.renderForecastsTable(this.state.forecasts);
+    Home.renderForecastsTable(JsonData);
 
     return (
       <div>
         <h1 id="tabelLabel" >Server statistics</h1>
         <p>Demonstration fetching data from the server.</p>
-        {contents}
       </div>
     );
-  }
-
-  async populateWeatherData() {
-    console.log("ZZZZZ")
-    const response = await fetch('weatherforecast');
-    const data = await response.json();
-    this.setState({ forecasts: data, loading: false });
   }
 }
